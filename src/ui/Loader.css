@@ -1,0 +1,9 @@
+.loader {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+img{
+    height: 70px;
+    width: 70px;
+  }
