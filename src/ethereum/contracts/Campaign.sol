@@ -13,7 +13,7 @@ contract CampaignFactory {
         return deployedCampaigns;
     }
 }
-
+ 
 contract Campaign{
     
     struct Request{
@@ -42,12 +42,12 @@ contract Campaign{
    Request[] public requests ;
    
      
-    constructor (uint minimum) public {
+   function Campaign(uint minimum,address creator ) public {
         minimumContrbution = minimum;
-        manager = msg.sender;
+        manager = creator;
     }
     
-    // if uou want to access to mesage value you need to state it spayable which is the amoutn of ether sent in the trns
+    // if uou want to access to mesage value you need to state it payable which is the amoutn of ether sent in the trns
     function contribute() public payable {
         require(msg.value > minimumContrbution);
         approvers[msg.sender]=true;
