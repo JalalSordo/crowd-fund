@@ -3,10 +3,8 @@ const ganach = require("ganache-cli");
 const Web3 = require("web3"); //becasause its contructor function
 const web3 = new Web3(ganach.provider());
 
-const {
-  compiledCampaignFactory,
-} = require("../etheurm/build/CampaignFactory.json");
-const { compiledCampaign } = require("../etheurm/build/Campaign.json");
+const compiledCampaignFactory = require("../src/ethereum/build/CampaignFactory.json");
+const compiledCampaign = require("../src/ethereum/build/Campaign.json");
 
 let accounts;
 let factoryUnderTest;
@@ -36,11 +34,11 @@ beforeEach(async () => {
     JSON.parse(compiledCampaign.interface),
     campaignAddress
   );
+});
 
-  describe("Campaigns", () => {
-    it("deployes a factory and a campaign", () => {
-      assert.ok(factoryUnderTest.options.address);
-      assert.ok(campaignUnderTest.options.address);
-    });
+describe("Campaigns", () => {
+  it("deployes a factory and a campaign", () => {
+    assert.ok(factoryUnderTest.options.address);
+    assert.ok(campaignUnderTest.options.address);
   });
 });
